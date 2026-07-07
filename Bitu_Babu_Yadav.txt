@@ -2,6 +2,7 @@ Student Name: Bitu Babu Yadav
 Student ID: A00032853
 Module: Software Engineering (CMP-N204-0)
 Assessment: Alternative Assessment Resit 2026
-Task: Lab 1 - Git Basics Completed Successfully!
+Game Theme: Retro Guessing Quest (Database-driven Number Guessing Game)
 Repository: https://github.com/bitubabuyadav2040-debug/sofware-engineering.git
+Task: Lab 1 - Version Control Configured for Game Project Successfully!
 Date: July 7, 2026
