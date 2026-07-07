@@ -89,6 +89,28 @@ app.get('/db_test', async (req, res) => {
     }
 });
 
+// POST route to handle score submission
+app.post('/submit-score', async (req, res) => {
+    try {
+        const { playerName, score } = req.body;
+        
+        // Determine role based on score (fewer attempts is better)
+        let role = 'Apprentice Rank';
+        const numScore = parseInt(score);
+        if (numScore <= 3) role = 'Grandmaster (Top Score)';
+        else if (numScore <= 5) role = 'Master Rank';
+        else if (numScore <= 7) role = 'Challenger Rank';
+
+        const sql = 'INSERT INTO test_table (name, score, role) VALUES (?, ?, ?)';
+        await db.query(sql, [playerName, numScore, role]);
+        
+        // Redirect to leaderboard after submission
+        res.redirect('/db_test');
+    } catch (err) {
+        res.status(500).send("Database error: " + err.message);
+    }
+});
+
 // Start Server
 app.listen(port, () => {
     console.log(`Server running on port ${port}`);

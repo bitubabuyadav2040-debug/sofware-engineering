@@ -1,13 +1,63 @@
 extends layout
 
 block content
-  p welcome to the main index page. This view demonstrates PUG rendering, variable injection, and template iteration.
-  
-  h2 Iterating Collections in Pug
-  p Below is a list of dynamic items passed directly from the Express controller and rendered using the Pug <code>each item in data</code> loop.
-  
-  .list-container
-    each item in data
-      .list-item
-        .bullet
-        span= item
+  .game-panel
+    h2 Number Guessing Quest
+    p Guess the secret number between 1 and 100!
+    p
+      span#feedback-msg.highlight Waiting for your first guess...
+    
+    .input-group
+      input#guess-input(type="number", min="1", max="100", placeholder="50")
+      button#guess-btn.btn Guess
+
+    p Attempts: 
+      span#attempt-count.score-badge 0
+
+    // Submission form hidden until game over
+    div#submit-section(style="display: none; margin-top: 2rem;")
+      p You found it! Enter your name to save your score.
+      form(action="/submit-score", method="POST")
+        .input-group
+          input(type="text", name="playerName", placeholder="Enter your name", required=true)
+          input#final-score(type="hidden", name="score", value="0")
+          button.btn(type="submit") Submit Score
+
+  script.
+    let secretNumber = Math.floor(Math.random() * 100) + 1;
+    let attempts = 0;
+    
+    const guessInput = document.getElementById('guess-input');
+    const guessBtn = document.getElementById('guess-btn');
+    const feedbackMsg = document.getElementById('feedback-msg');
+    const attemptCount = document.getElementById('attempt-count');
+    const submitSection = document.getElementById('submit-section');
+    const finalScore = document.getElementById('final-score');
+    
+    guessBtn.addEventListener('click', () => {
+      const guess = parseInt(guessInput.value);
+      if (isNaN(guess) || guess < 1 || guess > 100) {
+        feedbackMsg.textContent = "Please enter a valid number between 1 and 100.";
+        return;
+      }
+      
+      attempts++;
+      attemptCount.textContent = attempts;
+      
+      if (guess === secretNumber) {
+        feedbackMsg.textContent = "CORRECT! The number was " + secretNumber;
+        feedbackMsg.style.color = "var(--accent-pink)";
+        guessInput.disabled = true;
+        guessBtn.disabled = true;
+        
+        // Show submit section
+        finalScore.value = attempts;
+        submitSection.style.display = "block";
+      } else if (guess < secretNumber) {
+        feedbackMsg.textContent = "Too low! Try higher.";
+      } else {
+        feedbackMsg.textContent = "Too high! Try lower.";
+      }
+      guessInput.value = '';
+      guessInput.focus();
+    });
