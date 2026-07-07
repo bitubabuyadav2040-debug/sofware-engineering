@@ -1,0 +1,9 @@
+Copy-Paste Prompt:
+
+"Act as a professional B2B copywriter. I am building a simple, 3-page corporate website for my e-commerce retail business. My company purchases inventory from wholesale distributors and brands to sell on major online marketplaces. This website will NOT have a shopping cart or sell products directly to consumers. Its sole purpose is to act as a professional portfolio to show distributors that we are a legitimate, established retail partner.
+
+Please write the complete website copy for the following three pages, keeping the tone highly professional, corporate, and trustworthy:
+
+1. Home Page: Write a strong headline and a brief introduction stating that we are a premier e-commerce retail partner. Emphasize that we specialize in helping brands expand their online reach, manage inventory efficiently, and protect their brand integrity.
+2. About Us: Write a company mission statement. Focus on our commitment to long-term wholesale partnerships, reliable logistics, and mutually beneficial business relationships.
+3. Contact Us: Write a brief introductory sentence inviting brands to reach out for wholesale partnerships, and provide clear placeholders for my Company Name, US LLC Address, US Phone Number, and Professional Email Address."

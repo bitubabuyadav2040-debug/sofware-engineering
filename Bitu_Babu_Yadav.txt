@@ -1,0 +1,7 @@
+Student Name: Bitu Babu Yadav
+Student ID: A00032853
+Module: Software Engineering (CMP-N204-0)
+Assessment: Alternative Assessment Resit 2026
+Task: Lab 1 - Git Basics Completed Successfully!
+Repository: https://github.com/bitubabuyadav2040-debug/sofware-engineering.git
+Date: July 7, 2026
