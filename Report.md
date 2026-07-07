@@ -29,6 +29,8 @@ An Express backend handles static file serving, URL routing, and database queryi
 ## Final Repository
 All source code and assets have been successfully tracked and pushed to the online GitHub repository.
 
+**GitHub Link:** [https://github.com/bitubabuyadav2040-debug/sofware-engineering.git](https://github.com/bitubabuyadav2040-debug/sofware-engineering.git)
+
 ![GitHub Repo](screenshots/github_online_repo_1783453958889.png)
 
 ## Conclusion
