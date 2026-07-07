@@ -1,13 +1,13 @@
-doctype html
-html
-  head
-    title= title
-    link(rel='stylesheet', href='/css/style.css')
-  body
-    header
-      h1= title
-    main
-      p= message
-      p Connect with your community to share food and reduce waste.
-    footer
-      p &copy; 2026 Group Balen
+extends layout
+
+block content
+  p welcome to the main index page. This view demonstrates PUG rendering, variable injection, and template iteration.
+  
+  h2 Iterating Collections in Pug
+  p Below is a list of dynamic items passed directly from the Express controller and rendered using the Pug <code>each item in data</code> loop.
+  
+  .list-container
+    each item in data
+      .list-item
+        .bullet
+        span= item

@@ -16,9 +16,20 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 const db = require('./services/db');
 
-// Basic Route - Lab 4 Exercise 1: hello + your name
+// Basic Route - Lab 5 MVC rendering with variables and looping
 app.get('/', (req, res) => {
-    res.send("Hello Bitu Babu Yadav");
+    const test_data = [
+        'Lab 1 - Version Control with Git (Completed)',
+        'Lab 2 - Semantic HTML5 & CSS Layouts (Completed)',
+        'Lab 3 - Docker Containers & DB Scaffolding (Completed)',
+        'Lab 4 - Express Routing (Completed)',
+        'Lab 5 - Model-View-Controller & PUG Templates (Completed)'
+    ];
+    res.render('index', {
+        title: 'CMP-N204-0 - Software Engineering Labs',
+        heading: 'Software Engineering Labs Index',
+        data: test_data
+    });
 });
 
 // Lab 4 Exercise 2 & 3: roehampton route and logging URL to console
@@ -43,14 +54,18 @@ app.get('/student/:name/:id', (req, res) => {
     res.send("Student Name: " + req.params.name + ", ID: " + req.params.id);
 });
 
-// Lab 4 Optional Exercise 4: db_test/:id (Retrieving specific row)
+// Lab 5 Database MVC rendering for a single row by ID
 app.get('/db_test/:id', async (req, res) => {
     try {
         const id = req.params.id;
         const sql = 'SELECT * FROM test_table WHERE id = ?';
         const results = await db.query(sql, [id]);
         if (results.length > 0) {
-            res.send(`<h1>Student Details (ID: ${results[0].id})</h1><p>Name: <strong>${results[0].name}</strong></p><p>Role: ${results[0].role}</p>`);
+            res.render('db', {
+                title: `Record Details - ID ${id}`,
+                heading: `Database Record Detail (ID: ${id})`,
+                data: results
+            });
         } else {
             res.status(404).send(`<h1>Record Not Found</h1><p>No record found with ID ${id}</p>`);
         }
@@ -59,12 +74,16 @@ app.get('/db_test/:id', async (req, res) => {
     }
 });
 
-// Database Test Route - Lab 3 verification and base route
+// Lab 5 Database MVC rendering (Iterating records in table and list)
 app.get('/db_test', async (req, res) => {
     try {
         const sql = 'SELECT * FROM test_table';
         const results = await db.query(sql);
-        res.json(results);
+        res.render('db', {
+            title: 'Database Test Records',
+            heading: 'All Student Records (Database View)',
+            data: results
+        });
     } catch (err) {
         res.status(500).send("Database error: " + err.message);
     }

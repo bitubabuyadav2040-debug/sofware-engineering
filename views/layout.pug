@@ -1,0 +1,162 @@
+doctype html
+html(lang="en")
+  head
+    meta(charset="UTF-8")
+    meta(name="viewport", content="width=device-width, initial-scale=1.0")
+    title= title
+    link(href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&display=swap", rel="stylesheet")
+    style.
+      :root {
+        --bg-color: #0f172a;
+        --card-bg: #1e293b;
+        --accent-color: #38bdf8;
+        --text-color: #f1f5f9;
+        --text-muted: #94a3b8;
+        --border-color: #334155;
+        --gradient: linear-gradient(135deg, #38bdf8 0%, #3b82f6 100%);
+      }
+      body {
+        font-family: 'Outfit', sans-serif;
+        background-color: var(--bg-color);
+        color: var(--text-color);
+        margin: 0;
+        padding: 2rem;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        min-height: 100vh;
+      }
+      .container {
+        max-width: 900px;
+        width: 100%;
+        background: var(--card-bg);
+        padding: 3rem;
+        border-radius: 24px;
+        box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+        border: 1px solid var(--border-color);
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+      }
+      .container:hover {
+        transform: translateY(-4px);
+        box-shadow: 0 30px 60px rgba(56, 189, 248, 0.1);
+      }
+      header {
+        text-align: center;
+        margin-bottom: 2rem;
+      }
+      h1 {
+        font-size: 2.8rem;
+        font-weight: 800;
+        background: var(--gradient);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        margin: 0;
+        letter-spacing: -1px;
+      }
+      nav {
+        display: flex;
+        justify-content: center;
+        gap: 1.5rem;
+        margin: 1.5rem 0 2.5rem 0;
+        border-bottom: 1px solid var(--border-color);
+        padding-bottom: 1.5rem;
+      }
+      nav a {
+        color: var(--text-muted);
+        text-decoration: none;
+        font-weight: 600;
+        transition: color 0.2s ease;
+      }
+      nav a:hover, nav a.active {
+        color: var(--accent-color);
+      }
+      p {
+        line-height: 1.8;
+        color: var(--text-muted);
+        font-size: 1.1rem;
+      }
+      .highlight {
+        color: var(--accent-color);
+        font-weight: 600;
+      }
+      .list-item {
+        background: rgba(56, 189, 248, 0.05);
+        border: 1px solid var(--border-color);
+        padding: 1rem 1.5rem;
+        border-radius: 12px;
+        margin: 0.5rem 0;
+        color: var(--text-color);
+        display: flex;
+        align-items: center;
+        gap: 1rem;
+        font-weight: 500;
+        transition: background-color 0.2s ease;
+      }
+      .list-item:hover {
+        background: rgba(56, 189, 248, 0.1);
+      }
+      .bullet {
+        width: 8px;
+        height: 8px;
+        background: var(--gradient);
+        border-radius: 50%;
+      }
+      table {
+        width: 100%;
+        border-collapse: collapse;
+        margin: 2rem 0;
+        font-size: 1rem;
+        text-align: left;
+        border-radius: 12px;
+        overflow: hidden;
+        border: 1px solid var(--border-color);
+      }
+      th, td {
+        padding: 1rem 1.5rem;
+      }
+      th {
+        background: var(--gradient);
+        color: #0f172a;
+        font-weight: 800;
+        text-transform: uppercase;
+        font-size: 0.85rem;
+        letter-spacing: 1px;
+      }
+      tr {
+        border-bottom: 1px solid var(--border-color);
+        background-color: rgba(30, 41, 59, 0.5);
+        transition: background-color 0.2s ease;
+      }
+      tr:last-child {
+        border-bottom: none;
+      }
+      tr:hover {
+        background-color: rgba(56, 189, 248, 0.05);
+      }
+      .badge {
+        background: rgba(56, 189, 248, 0.1);
+        color: var(--accent-color);
+        padding: 0.25rem 0.75rem;
+        border-radius: 9999px;
+        font-size: 0.9rem;
+        font-weight: 600;
+        display: inline-block;
+      }
+      footer {
+        margin-top: 3rem;
+        text-align: center;
+        color: var(--text-muted);
+        font-size: 0.9rem;
+      }
+  body
+    .container
+      header
+        h1= heading
+      nav
+        a(href="/") Home (Pug Loop)
+        a(href="/db_test") Database View (Pug Table)
+        a(href="/db_test/1") Single DB Item
+      main
+        block content
+    footer
+      p &copy; 2026 Bitu Babu Yadav - Software Engineering CMP-N204-0

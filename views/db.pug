@@ -1,0 +1,32 @@
+extends layout
+
+block content
+  p This view represents the Model-View-Controller (MVC) pattern by separating database query logic (Model) and routing controller logic (Controller) from the user interface representation (View).
+  
+  h2 Database Table (test_table) Records
+  p The data below is queried from the MySQL database container and dynamically rendered into this table template using Pug iteration.
+
+  table
+    thead
+      <tr>
+        <th>ID</th>
+        <th>Name</th>
+        <th>Email</th>
+        <th>Role</th>
+      </tr>
+    tbody
+      each record in data
+        tr
+          <td><span class="badge">#{record.id}</span></td>
+          <td><strong>#{record.name}</strong></td>
+          <td>#{record.email}</td>
+          <td>#{record.role}</td>
+
+  h2 Database Bullet Point List (Exercise 1)
+  p This list renders only the names as bullet points, fulfilling the first database iteration exercise.
+  
+  .list-container
+    each record in data
+      .list-item
+        .bullet
+        span= record.name
