@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HTML Basics - Software Engineering</title>
+    <!-- Import Outfit Google Font -->
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-color: #0f172a;
+            --card-bg: #1e293b;
+            --accent-color: #38bdf8;
+            --text-color: #f1f5f9;
+            --text-muted: #94a3b8;
+            --border-color: #334155;
+            --gradient: linear-gradient(135deg, #38bdf8 0%, #3b82f6 100%);
+        }
+
+        body {
+            font-family: 'Outfit', sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            margin: 0;
+            padding: 2rem;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 900px;
+            width: 100%;
+            background: var(--card-bg);
+            padding: 3rem;
+            border-radius: 24px;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+            border: 1px solid var(--border-color);
+            backdrop-filter: blur(10px);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .container:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 30px 60px rgba(56, 189, 248, 0.1);
+        }
+
+        h1 {
+            font-size: 3rem;
+            font-weight: 800;
+            background: var(--gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-top: 0;
+            margin-bottom: 1.5rem;
+            text-align: center;
+            letter-spacing: -1px;
+        }
+
+        h2 {
+            font-size: 1.8rem;
+            color: var(--accent-color);
+            border-bottom: 2px solid var(--border-color);
+            padding-bottom: 0.5rem;
+            margin-top: 2rem;
+        }
+
+        h3 {
+            font-size: 1.3rem;
+            color: var(--text-color);
+            margin-top: 1.5rem;
+        }
+
+        p {
+            line-height: 1.8;
+            color: var(--text-muted);
+            font-size: 1.1rem;
+        }
+
+        .highlight {
+            color: var(--accent-color);
+            font-weight: 600;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 2rem 0;
+            font-size: 1rem;
+            text-align: left;
+            border-radius: 12px;
+            overflow: hidden;
+            border: 1px solid var(--border-color);
+        }
+
+        th, td {
+            padding: 1rem 1.5rem;
+        }
+
+        th {
+            background: var(--gradient);
+            color: #0f172a;
+            font-weight: 800;
+            text-transform: uppercase;
+            font-size: 0.85rem;
+            letter-spacing: 1px;
+        }
+
+        tr {
+            border-bottom: 1px solid var(--border-color);
+            background-color: rgba(30, 41, 59, 0.5);
+            transition: background-color 0.2s ease;
+        }
+
+        tr:last-child {
+            border-bottom: none;
+        }
+
+        tr:hover {
+            background-color: rgba(56, 189, 248, 0.05);
+        }
+
+        .student-badge {
+            background: rgba(56, 189, 248, 0.1);
+            color: var(--accent-color);
+            padding: 0.25rem 0.75rem;
+            border-radius: 9999px;
+            font-size: 0.9rem;
+            font-weight: 600;
+            display: inline-block;
+        }
+
+        footer {
+            margin-top: 3rem;
+            text-align: center;
+            color: var(--text-muted);
+            font-size: 0.9rem;
+        }
+
+        .btn {
+            display: inline-block;
+            background: var(--gradient);
+            color: #0f172a;
+            padding: 0.75rem 1.5rem;
+            border-radius: 12px;
+            text-decoration: none;
+            font-weight: 700;
+            transition: transform 0.2s ease, opacity 0.2s ease;
+            box-shadow: 0 4px 12px rgba(56, 189, 248, 0.3);
+        }
+
+        .btn:hover {
+            transform: scale(1.05);
+            opacity: 0.95;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>HTML Basics (Lab 2)</h1>
+        <p>This page demonstrates the foundational elements of <span class="highlight">HTML5</span> as completed for the Software Engineering Module <strong>CMP-N204-0</strong>. Version control is integrated with Git, and styles are applied using clean, modern Vanilla CSS variables.</p>
+        
+        <h2>Student Profile & Assignment Details</h2>
+        <p>This alternative assessment represents a full implementation of the five scheduled lab exercises. Below is the primary developer information logged for verification.</p>
+        
+        <table>
+            <thead>
+                <tr>
+                    <th>Student Name</th>
+                    <th>Student ID</th>
+                    <th>Module Name</th>
+                    <th>Module Code</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Bitu Babu Yadav</td>
+                    <td><span class="student-badge">A00032853</span></td>
+                    <td>Software Engineering</td>
+                    <td>CMP-N204-0</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <h2>Subheading Level 2 - Hierarchical Content</h2>
+        <p>HTML documents rely on a clean semantic hierarchy. Search engines and screen readers utilize tags from <code>&lt;h1&gt;</code> to <code>&lt;h6&gt;</code> to determine document structure and construct tables of contents.</p>
+        
+        <h3>Sub-subheading Level 3</h3>
+        <p>This is a third-level heading. Under this, we have detailed some core specifications of the project:
+            <ul>
+                <li><strong>Responsive Design:</strong> Adapts fluidly to different screen configurations.</li>
+                <li><strong>Aesthetics:</strong> Leverages deep slate backgrounds paired with high-contrast sky blue accent colors.</li>
+                <li><strong>Semantic Markup:</strong> Clean, valid, and linted elements.</li>
+            </ul>
+        </p>
+
+        <div style="text-align: center; margin-top: 2rem;">
+            <a href="https://github.com/bitubabuyadav2040-debug/sofware-engineering.git" class="btn" target="_blank">View GitHub Repository</a>
+        </div>
+    </div>
+    
+    <footer>
+        &copy; 2026 Bitu Babu Yadav. All Rights Reserved.
+    </footer>
+</body>
+</html>
